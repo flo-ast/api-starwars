@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import About from './pages/About';
+import Films from './pages/Films';
+import Characters from './pages/Characters';
+import Planets from './pages/Planets';
+import Species from './pages/Species';
+import NotFound from './pages/NotFound';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<About />} />
+        <Route exact path="/films" element={<Films />} />
+        <Route exact path="/characters" element={<Characters />} />
+        <Route exact path="/species" element={<Species />} />
+        <Route exact path="/planets" element={<Planets />} />
+        <Route exact path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
